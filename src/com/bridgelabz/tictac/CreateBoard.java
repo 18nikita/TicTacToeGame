@@ -16,6 +16,8 @@ public class CreateBoard {
 		elementCreation();
 		chooseUserInput();
 		showBoard();
+		userMove();
+		currentBoard();
 	}
 
 	public static void elementCreation() {
@@ -50,23 +52,23 @@ public class CreateBoard {
 		System.out.println("| " + element[7] + " | " + element[8] + " | " + element[9] + " |");
 	}
 
-    public static void userMove(){
-        System.out.println("Enter your move 1-9 : ");
-        Scanner sc =new Scanner(System.in);
-        int userInput=sc.nextInt();
-        if (element[userInput]!='X' && element[userInput]!='O'){
-            element[userInput]=userMark;
-        }
-        else{
-            System.out.println("Position already Taken ! please choose another position ");
-        }
-    }
-    public static void currentBoard(){
-        for (int i=1;i<10;i++) {
-            if (element[i] !='X'&&element[i] !='O') {
-                element[i]=(char) (i+'0');
-            }
-        }
-        showBoard();
-    }
+	public static void userMove() {
+		System.out.println("Enter your move 1-9 : ");
+		Scanner sc = new Scanner(System.in);
+		int userInput = sc.nextInt();
+		if (element[userInput] != 'X' && element[userInput] != 'O') {
+			element[userInput] = userMark;
+		} else {
+			System.out.println("Position already Taken ! please choose another position ");
+		}
+	}
+
+	public static void currentBoard() {
+		for (int i = 1; i < 10; i++) {
+			if (element[i] != 'X' && element[i] != 'O') {
+				element[i] = (char) (i + '0');
+			}
+		}
+		showBoard();
+	}
 }
