@@ -84,4 +84,9 @@ public class CreateBoard {
 			System.out.println("Computer Won Toss ! Will play First Move");
 		}
 	}
+	public static void computerFirstTurn() {
+        int computerNumber = (int) Math.random()*10;
+      element[computerNumber]=computerMark;
+        System.out.println("Computer choses '"+computerNumber+"' now user turn");
+    }
 }
