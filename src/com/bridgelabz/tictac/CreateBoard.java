@@ -3,28 +3,32 @@ package com.bridgelabz.tictac;
 import java.util.Scanner;
 
 public class CreateBoard {
-	
-	static char x='X';
-	static char o='O';
-	
+
+	static char x = 'X';
+	static char o = 'O';
+	static Scanner sc = new Scanner(System.in);
+	static char userMark, computerMark;
+	public static char[] element;
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Tic Tac Toe Game");
-		boardCreation();
+
+		elementCreation();
 		chooseUserInput();
+		showBoard();
 	}
 
-	public static void boardCreation() {
-		char[] element = new char[10];
+	public static void elementCreation() {
+		element = new char[10];
 		for (int i = 1; i < 10; i++) {
 			element[i] = ' ';
 		}
-		System.out.println("Tic tac Toe board is ready");
+		System.out.println("Tic tac Toe element is ready");
 	}
-	
+
 	public static void chooseUserInput() {
-		
-		System.out.println("Input between X or O");
-		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Input X or O");
 		char ch = sc.next().charAt(0);
 		sc.close();
 
@@ -36,8 +40,33 @@ public class CreateBoard {
 
 		else
 			System.out.println("invalid input ");
-
 	}
+
+	public static void showBoard() {
+		System.out.println("| " + element[1] + " | " + element[2] + " | " + element[3] + " |");
+		System.out.println("-------------- ");
+		System.out.println("| " + element[4] + " | " + element[5] + " | " + element[6] + " |");
+		System.out.println("-------------- ");
+		System.out.println("| " + element[7] + " | " + element[8] + " | " + element[9] + " |");
+	}
+
+    public static void userMove(){
+        System.out.println("Enter your move 1-9 : ");
+        Scanner sc =new Scanner(System.in);
+        int userInput=sc.nextInt();
+        if (element[userInput]!='X' && element[userInput]!='O'){
+            element[userInput]=userMark;
+        }
+        else{
+            System.out.println("Position already Taken ! please choose another position ");
+        }
+    }
+    public static void currentBoard(){
+        for (int i=1;i<10;i++) {
+            if (element[i] !='X'&&element[i] !='O') {
+                element[i]=(char) (i+'0');
+            }
+        }
+        showBoard();
+    }
 }
-
-
