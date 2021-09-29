@@ -1,5 +1,6 @@
 package com.bridgelabz.tictac;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class CreateBoard {
@@ -70,5 +71,17 @@ public class CreateBoard {
 			}
 		}
 		showBoard();
+	}
+
+	public static void toss() {
+		Random rand = new Random();
+		int a = rand.nextInt(2);
+		if (a == 0) {
+			System.out.println("User Won Toss ! Play your First Move");
+			userMove();
+			currentBoard();
+		} else {
+			System.out.println("Computer Won Toss ! Will play First Move");
+		}
 	}
 }
